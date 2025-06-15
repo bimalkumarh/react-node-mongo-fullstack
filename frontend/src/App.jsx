@@ -5,13 +5,15 @@ import {
 } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage';
-import ArticlesList from './pages/ArticleList';
+import ArticlesListPage from './pages/ArticlesListPage';
 import ArticlePage from './pages/ArticlePage';
+import NotFoundPage from './pages/NotFoundPage';
 import Layout from './Layout';
 
 const routes = [{
   path: '/',
   element: <Layout />,
+  // errorElement: <NotFoundPage/>,
   children: [{
     path: '/',
     element: <HomePage />
@@ -20,9 +22,9 @@ const routes = [{
     element: <AboutPage />
   }, {
     path: '/articles',
-    element: <ArticlesList />
+    element: <ArticlesListPage />
   }, {
-    path: '/articles/individual',
+    path: '/articles/:name', // -> /articles/learn-react
     element: <ArticlePage />
   }]
 }]
